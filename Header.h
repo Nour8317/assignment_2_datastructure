@@ -1,5 +1,6 @@
 #ifndef Header_h
 #define Header_h
+
 #include<iostream>
 using namespace std;
 
@@ -8,6 +9,7 @@ struct Node{
     Node *next = NULL;
     T value;
 };
+
 template<typename T>
 class SingleLinkedList{
     private:
@@ -32,5 +34,7 @@ class SingleLinkedList{
     void clear();
     void print();
 };
+
 #include"SingleLinkedList.cpp"
+
 #endif
