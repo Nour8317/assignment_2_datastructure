@@ -217,48 +217,73 @@ bool DoubleLinkedList<T>::isItemAtEqual(T element,int index){
 
 template<typename T>
 void DoubleLinkedList<T>::swap(int firstIndex, int secondIndex) {
+
     if (firstIndex > size - 1 || firstIndex < 0 || secondIndex > size - 1 || secondIndex < 0){
         cout << "Index Not Found!\n";
         exit(-1);
     }
-    if (firstIndex > secondIndex) {
-        if (firstIndex = secondIndex + 1) { // adjacent.
-            if (secondIndex == 0){  //swap with head.
+    else {
+        int temp1 = firstIndex;
+        int temp2 = secondIndex;
+        while (temp1--) {
 
+        }
+        if (firstIndex > secondIndex) {
+            if (firstIndex = secondIndex + 1) { // adjacent.
+                if (secondIndex == 0 && firstIndex == size - 1) { //swapping head with tail.
+                    
+                }
+                else if (secondIndex == 0){  //swap with head.
+                    
+                }
+                else if (firstIndex == size - 1) {  //swap with tail.
+
+                }
+                else { //general case.
+
+                }
             }
-            else if (firstIndex == size - 1) {  //swap with tail.
+            else {  //non adjacent.
+                if (secondIndex == 0 && firstIndex == size - 1){  //swap head with tail.
 
-            }
-            else {
+                }
+                else if (firstIndex == size - 1) {  //swap with tail.
 
+                }
+                else if (secondIndex == 0) {  //swap head with tail.
+
+                }
+                else {  //general case.
+
+                }
             }
         }
-        else {  //non adjacent.
-            if (secondIndex == 0 && firstIndex == size - 1){  //swap head with tail.
+        else if (secondIndex > firstIndex) {
+            if (secondIndex = firstIndex + 1) { //adjacent
+                if (firstIndex == 0){  //swap with head.
 
-            }
-            else if (firstIndex == size - 1) {  //swap with tail.
+                }
+                else if (secondIndex == size - 1) {  //swap with tail.
+                    
+                }
+                else {  //general case.
 
+                }
             }
-            else if (secondIndex == 0) {  //swap head with tail.
+            else { //non adjacent.
+                if (firstIndex == 0 && secondIndex == size - 1) {  //swap head with tail.
 
-            }
-        }
-    }
-    else if (secondIndex > firstIndex) {
-        if (secondIndex = firstIndex + 1) { //adjacent
-            if (firstIndex == 0){  //swap with head.
+                }
+                else if (firstIndex == 0){  //swap with head.
 
-            }
-            else if (secondIndex == size - 1) {  //swap with tail.
-                
-            }
-            else {
+                }
+                else if (secondIndex == size - 1) {  //swap with tail.
+                    
+                }
+                else {  //general case.
 
+                }
             }
-        }
-        else {
-
         }
     }
 }
