@@ -34,7 +34,21 @@ class SingleLinkedList{
     void clear();
     void print();
 };
-
+template<typename T>
+class queue1{
+private:
+    int front, rear, size, maxLength = 100;
+    int* data;
+public:
+    queue1();
+    void enqueue(T element);
+    T dequeue();
+    T first(); // return the first element without removing it.
+    bool isEmpty();
+    int queueSize();
+    void clear();
+    void print();
+};
 #include"SingleLinkedList.cpp"
-
+#include"queue.cpp"
 #endif
