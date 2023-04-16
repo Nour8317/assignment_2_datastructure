@@ -35,6 +35,43 @@ class SingleLinkedList{
     void print();
 };
 
+template<typename T>
+struct DNode{
+    T data;
+    DNode* previous;
+    DNode* next;
+};
+
+template<typename T>
+class DoubleLinkedList{
+    int size = 0;
+    DNode<T>* head;
+    DNode<T>* tail;
+public:
+    DoubleLinkedList();    //constructior
+    void insertAtHead(T element);   //insert element at head.
+    void insertAtTail(T element);   //insert element at tail.
+    void insertAt(T element, int index);   //insert element at a specific index.
+    void insertAfter(DNode<T>* prev, T element);   //insert element after a specific node.  
+    void removeAtHead();   //remove item at head.
+    void removeAtTail();   //remove item at tail.
+    void removeAt(int index);   //remove item at index.
+    T retrieveAt(int index);   //retrieve item at index. 
+    void replaceAt(T element, int index);  //replace item at index.
+    bool isExist(T element);   //check for the existance of an item.
+    bool isItemAtEqual(T element, int index);   //check for the equality of an item.
+    void swap(int firstIndex, int secondIndex);  //swapping two nodes with each other.
+    void reverse(); //reverse data in the linked list.
+    bool isEmpty(); //check if list is empty.
+    int doubleLinkedListSize(); //returns the size of the liked list.
+    void clear(); //clears data.
+    void forwardTraverse();  //prints from head to tail.
+    void backwardTraverse();  //prints from tail to head.
+    ~DoubleLinkedList(); //destructor.
+};
+
+
 #include"SingleLinkedList.cpp"
+#include"DoubleLinkedList.cpp"
 
 #endif
