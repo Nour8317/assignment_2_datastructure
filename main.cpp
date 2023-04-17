@@ -34,41 +34,36 @@ int main(){
     // cout << "after swap" << endl;
     // list.print();
 
-    list.removeAt(0);
-    list.removeAt(0);
-    list.removeAt(0);
-    list.removeAt(0);
-    list.removeAt(0);
-    list.removeAt(0);
-    list.print();
-
     //------------------Double Linked List------------------//
-    DoubleLinkedList<int> Dlist;
 
+    DoubleLinkedList<int> Dlist;
+    cout << Dlist.isEmpty();
     Dlist.insertAt(1,0);
     Dlist.insertAt(2,1);
     Dlist.insertAt(3,2);
-    Dlist.insertAtTail(5);
     Dlist.insertAt(4,3);
-    Dlist.insertAt(6,1);
-    cout << Dlist.isItemAtEqual(5,-1);
-    cout << endl;
+    Dlist.insertAt(5,4);
+    Dlist.clear();
+    Dlist.insertAtHead(1);
+    Dlist.insertAtHead(2);
+    Dlist.insertAtHead(3);
     Dlist.forwardTraverse();
+
 
     //------------------Circular Linked List------------------//
 
 
     //------------------Queue------------------//
 
-    queue1<int> q;
-    q.enqueue(1);
-    q.enqueue(2);
-    q.enqueue(3);
-    q.dequeue();
-    cout <<"first= "<< q.first() << endl;
-    cout <<"size= "<<q.queueSize() << endl;
-    q.clear();
-    cout << q.isEmpty() << endl;
-    cout <<"size= "<<q.queueSize() << endl;
-    q.print();
+    // queue1<int> q;
+    // q.enqueue(1);
+    // q.enqueue(2);
+    // q.enqueue(3);
+    // q.dequeue();
+    // cout <<"first= "<< q.first() << endl;
+    // cout <<"size= "<<q.queueSize() << endl;
+    // q.clear();
+    // cout << q.isEmpty() << endl;
+    // cout <<"size= "<<q.queueSize() << endl;
+    // q.print();
 }

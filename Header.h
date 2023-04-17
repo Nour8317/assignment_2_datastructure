@@ -7,7 +7,8 @@ using namespace std;
 template<typename T>
 struct Node{
     Node *next = NULL;
-    T value;
+    Node *previous = NULL;
+    T data;
 };
 
 template<typename T>
@@ -36,23 +37,16 @@ class SingleLinkedList{
 };
 
 template<typename T>
-struct DNode{
-    T data;
-    DNode* previous;
-    DNode* next;
-};
-
-template<typename T>
 class DoubleLinkedList{
     int size = 0;
-    DNode<T>* head;
-    DNode<T>* tail;
+    Node<T>* head;
+    Node<T>* tail;
 public:
     DoubleLinkedList();    //constructior
     void insertAtHead(T element);   //insert element at head.
     void insertAtTail(T element);   //insert element at tail.
     void insertAt(T element, int index);   //insert element at a specific index.
-    void insertAfter(DNode<T>* prev, T element);   //insert element after a specific node.  
+    void insertAfter(Node<T>* prev, T element);   //insert element after a specific node.  
     void removeAtHead();   //remove item at head.
     void removeAtTail();   //remove item at tail.
     void removeAt(int index);   //remove item at index.

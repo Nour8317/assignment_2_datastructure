@@ -12,7 +12,7 @@ template <typename T>
 void SingleLinkedList<T>::insertAtHead(T element)
 {
     Node<T> *newNode = new Node<T>;
-    newNode->value = element;
+    newNode->data = element;
     newNode->next = head;
     head = newNode;
     size++;
@@ -32,7 +32,7 @@ void SingleLinkedList<T>::insertAtTail(T element)
     }
     
     Node<T> *current = new Node<T>;
-    current->value = element;
+    current->data = element;
     tail->next = current;
     tail = current;
     size++;
@@ -56,7 +56,7 @@ void SingleLinkedList<T>::insertAt(T element, int index)
         int c = 0;
         Node<T> *current = head;
         Node<T> *temp = new Node<T>;
-        temp->value = element;
+        temp->data = element;
         while (c + 1 != index)
         {
             current = current->next;
@@ -132,11 +132,11 @@ T SingleLinkedList<T>::retrieveAt(int index)
 {
     if (index == 0)
     {
-        return head->value;
+        return head->data;
     }
     else if (index == size - 1)
     {
-        return tail->value;
+        return tail->data;
     }
     else
     {
@@ -147,7 +147,7 @@ T SingleLinkedList<T>::retrieveAt(int index)
             temp = temp->next;
             c++;
         }
-        return temp->value;
+        return temp->data;
     }
 }
 
@@ -156,11 +156,11 @@ void SingleLinkedList<T>::replaceAt(T newElement, int index)
 {
     if (index == 0)
     {
-        head->value = newElement;
+        head->data = newElement;
     }
     else if (index == size - 1)
     {
-        tail->value = newElement;
+        tail->data = newElement;
     }
     else
     {
@@ -171,7 +171,7 @@ void SingleLinkedList<T>::replaceAt(T newElement, int index)
             temp = temp->next;
             c++;
         }
-        temp->value = newElement;
+        temp->data = newElement;
     }
 }
 
@@ -181,7 +181,7 @@ bool SingleLinkedList<T>::isExist(T element)
     Node<T> *temp = head;
     while (temp != NULL)
     {
-        if (temp->value == element)
+        if (temp->data == element)
         {
             return true;
         }
@@ -200,7 +200,7 @@ bool SingleLinkedList<T>::isItemAtEqual(T element, int index)
         temp = temp->next;
         c++;
     }
-    if (temp->value == element && c == index)
+    if (temp->data == element && c == index)
     {
         return true;
     }
@@ -273,8 +273,8 @@ void SingleLinkedList<T>::print()
     Node<T> *current = head;
     while (current != tail)
     {
-        cout << current->value << " ";
+        cout << current->data << " ";
         current = current->next;
     }
-    cout << tail->value;
+    cout << tail->data;
 }
