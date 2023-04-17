@@ -5,19 +5,40 @@
 using namespace std;
 
 template<typename T>
-struct Node{
-    Node *next = NULL;
-    Node *previous = NULL;
+class ArrayList {
+    T* array;
+    int size = 0, capacity = 0;
+public:
+    ArrayList(int cap);
+    void insert(T element);
+    void insertAt(T element, int index);
+    T retrieveAt(int index);
+    void removeAt(int index);
+    void replaceAt(T newElement, int index);
+    bool isItemAtEqual(T element, int index);
+    bool isEmpty();
+    bool isFull();
+    int listSize();
+    int maxListSize();
+    void clear();
+    void print();
+    ~ArrayList();
+};
+
+template<typename T>
+struct Node {
+    Node* next = NULL;
+    Node* previous = NULL;
     T data;
 };
 
 template<typename T>
-class SingleLinkedList{
-    private:
+class SingleLinkedList {
+private:
     Node<T>* head;
     Node<T>* tail;
     int size;
-    public:
+public:
     SingleLinkedList();
     void insertAtHead(T element);
     void insertAtTail(T element);
@@ -37,7 +58,8 @@ class SingleLinkedList{
 };
 
 template<typename T>
-class DoubleLinkedList{
+class DoubleLinkedList {
+private:
     int size = 0;
     Node<T>* head;
     Node<T>* tail;
@@ -64,12 +86,8 @@ public:
     ~DoubleLinkedList(); //destructor.
 };
 
-
-
-
-
 template<typename T>
-class queue1{
+class queue1 {
 private:
     int front, rear, size, maxLength = 100;
     int* data;
@@ -83,7 +101,10 @@ public:
     void clear();
     void print();
 };
+
+#include"ArrayList.cpp"
 #include"SingleLinkedList.cpp"
 #include"DoubleLinkedList.cpp"
 #include"queue.cpp"
+
 #endif

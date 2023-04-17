@@ -1,6 +1,5 @@
 #include "Header.h"
 
-
 template<typename T>
 DoubleLinkedList<T>::DoubleLinkedList(){
     head = NULL;
