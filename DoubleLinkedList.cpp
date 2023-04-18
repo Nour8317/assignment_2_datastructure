@@ -492,5 +492,5 @@ int DoubleLinkedList<T>::doubleLinkedListSize(){
 
 template <typename T>
 DoubleLinkedList<T>::~DoubleLinkedList(){
-
+    this->clear();
 }

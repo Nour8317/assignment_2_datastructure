@@ -87,7 +87,21 @@ public:
 };
 
 template<typename T>
-class _queue{
+class Stack {    //this stack is based on single linked list.
+    Node<T>* head = NULL;
+    int size = 0;
+public:
+    void push(T element);
+    T pop();
+    T top();
+    bool isEmpty();
+    int stackSize();
+    void clear();
+    void print();
+};
+
+template<typename T>
+class _queue {
 private:
     int front, rear, size, maxLength = 100;
     int* data;
@@ -105,6 +119,7 @@ public:
 #include"ArrayList.cpp"
 #include"SingleLinkedList.cpp"
 #include"DoubleLinkedList.cpp"
+#include"Stack.cpp"
 #include"queue.cpp"
 
 #endif
