@@ -87,11 +87,7 @@ public:
 };
 
 template<typename T>
-<<<<<<< Updated upstream
-class queue1 {
-=======
 class _queue{
->>>>>>> Stashed changes
 private:
     int front, rear, size, maxLength = 100;
     int* data;
