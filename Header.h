@@ -87,12 +87,16 @@ public:
 };
 
 template<typename T>
+<<<<<<< Updated upstream
 class queue1 {
+=======
+class _queue{
+>>>>>>> Stashed changes
 private:
     int front, rear, size, maxLength = 100;
     int* data;
 public:
-    queue1();
+    _queue();
     void enqueue(T element);
     T dequeue();
     T first(); // return the first element without removing it.

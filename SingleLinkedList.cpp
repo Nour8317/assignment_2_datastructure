@@ -85,12 +85,10 @@ template <typename T>
 void SingleLinkedList<T>::removeAt(int index) {
     if (index == 0) {
         removeAtHead();
-        size--;
         return;
     }
     else if (index == size - 1) {
         removeAtTail();
-        size--;
         return;
     }
     else if (index < size) {
