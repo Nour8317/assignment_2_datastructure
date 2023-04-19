@@ -26,7 +26,10 @@ T Stack<T>::pop() {
 
 template<typename T>
 T Stack<T>::top() {
-    return head->data;
+    if (size != 0)
+        return head->data;
+    else
+        return NULL;
 }
 
 template<typename T>

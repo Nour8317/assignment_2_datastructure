@@ -1,5 +1,51 @@
 #include"Header.h"
 
+
+void FirstLinkedListProblem() {
+    DoubleLinkedList<int> Dlist;
+    int sum = 0;
+    int arr[8] = {0, 1, 0, 3, 0, 2, 2, 0};
+    for (int i = 0; i < 8;i++) {
+        if (arr[i] == 0 && i != 0) {
+            Dlist.insertAtTail(sum);
+            sum = 0;
+        }
+        else {
+            sum += arr[i];
+        }
+    }
+    Dlist.forwardTraverse();
+}
+
+void SecondStackProblem(string input) {
+    Stack<char> st;
+    int count = 0;
+    for (int i = 0; i < input.size(); i++) {
+        st.push(input[i]);
+    }
+    while (!st.isEmpty()){
+        if (st.top() == ')') {
+            st.pop();
+            if (st.top() == '(') {
+                count += 2;
+            }
+        }
+        else st.pop();
+    }
+    cout << count;
+}
+
+void FirstQueueProblem(int n) {
+    _queue<string> q;
+    q.enqueue("1");
+    while (n--) {
+        q.enqueue(q.first() + "0");
+        q.enqueue(q.first() + "1");
+        cout << q.first() << " ";
+        q.dequeue();
+    }
+}
+
 int main() {
     //------------------Array Based List------------------//
 
@@ -25,15 +71,15 @@ int main() {
 
     //------------------Single Linked List------------------//
     
-    SingleLinkedList<int> list;
-    list.insertAtTail(0);
-    list.insertAtTail(1);
-    list.insertAtTail(2);
-    list.insertAtTail(3);
-    list.insertAtTail(4);
-    list.insertAtTail(5);
-    list.insertAtTail(6);
-    list.removeAt(0);
+    // SingleLinkedList<int> list;
+    // list.insertAtTail(0);
+    // list.insertAtTail(1);
+    // list.insertAtTail(2);
+    // list.insertAtTail(3);
+    // list.insertAtTail(4);
+    // list.insertAtTail(5);
+    // list.insertAtTail(6);
+    // list.removeAt(0);
     /*cout << "before swap" << endl;
     list.print();
     cout << endl;
@@ -76,32 +122,36 @@ int main() {
 
     //------------------Queue------------------//
 
-    _queue<int> q;
-    q.enqueue(1);
-    q.enqueue(2);
-    q.enqueue(3);
-    q.dequeue();
-    cout <<"first= "<< q.first() << endl;
-    cout <<"size= "<<q.queueSize() << endl;
-    q.clear();
-    cout << q.isEmpty() << endl;
-    cout <<"size= "<<q.queueSize() << endl;
-    q.print();
+    // _queue<int> q;
+    // q.enqueue(1);
+    // q.enqueue(2);
+    // q.enqueue(3);
+    // q.dequeue();
+    // cout <<"first= "<< q.first() << endl;
+    // cout <<"size= "<<q.queueSize() << endl;
+    // q.clear();
+    // cout << q.isEmpty() << endl;
+    // cout <<"size= "<<q.queueSize() << endl;
+    // q.print();
 
 
     //------------------Stack------------------//
-    Stack<int> St;
-    St.push(5);
-    St.push(6);
-    St.push(7);
-    St.print();
-    St.clear();
-    cout << St.isEmpty() << " " << St.stackSize() << endl;
-    St.push(1);
-    St.push(2);
-    cout << St.top() << endl;
-    St.push(3);
-    St.print();
-    cout << St.stackSize() << endl;
+    // Stack<int> St;
+    // St.push(5);
+    // St.push(6);
+    // St.push(7);
+    // St.print();
+    // St.clear();
+    // cout << St.isEmpty() << " " << St.stackSize() << endl;
+    // St.push(1);
+    // St.push(2);
+    // cout << St.top() << endl;
+    // St.push(3);
+    // St.print();
+    // cout << St.stackSize() << endl;
     
+
+    //------------------Problems------------------//
+    
+    FirstQueueProblem(5);
 }

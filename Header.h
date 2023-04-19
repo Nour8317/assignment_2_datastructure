@@ -104,7 +104,7 @@ template<typename T>
 class _queue {
 private:
     int front, rear, size, maxLength = 100;
-    int* data;
+    T* data;
 public:
     _queue();
     void enqueue(T element);
