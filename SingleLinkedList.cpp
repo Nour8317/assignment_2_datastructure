@@ -169,31 +169,39 @@ bool SingleLinkedList<T>::isItemAtEqual(T element, int index) {
     return false;
 }
 
-template <typename T>
+template<typename T>
 void SingleLinkedList<T>::swap(int firstItemIdx, int secondItemIdx) {
     int c = 0;
-    Node<T>* before1 = head;
-    while (c + 1 != firstItemIdx) {
-        before1 = before1->next;
+    if (firstItemIdx == secondItemIdx) {
+        return; 
+    }
+    Node<T> *prev1 = nullptr, *cur1 = head;
+    while (c + 1 != firstItemIdx)  {
+        prev1 = cur1;
+        cur1 = cur1->next;
         c++;
     }
-    int c2 = 0;
-    Node<T>* before2 = head;
-    while (c2 + 1 != secondItemIdx) {
-        before2 = before2->next;
-        c2++;
+    Node<T> *prev2 = nullptr, *cur2 = head;
+    for (int i = 0; cur2 && i < secondItemIdx; i++) {
+        prev2 = cur2;
+        cur2 = cur2->next;
     }
-    Node<T>* node1 = before1->next;
-    Node<T>* node2 = before2->next;
-    Node<T>* next1 = node1->next;
-    Node<T>* next2 = node2->next;
-    Node<T>* nex2 = node2->next;
-
-    before1->next = node2;
-    before2->next = node1;
-
-    node1->next = next2;
-    next2 = next1;
+    if (!cur1 || !cur2) {
+        return;
+    }
+    if (!prev1) {
+        head = cur2;
+    } else {
+        prev1->next = cur2;
+    }
+    if (!prev2) {
+        head = cur1;
+    } else {
+        prev2->next = cur1;
+    }
+    Node<T> *temp = cur1->next;
+    cur1->next = cur2->next;
+    cur2->next = temp;
 }
 
 template <typename T>
