@@ -87,6 +87,32 @@ public:
 };
 
 template<typename T>
+class CircularLinkedList {
+private:
+    int size;
+    Node<T>* head;
+    Node<T>* tail;
+public:
+    CircularLinkedList();
+    void insertAtHead(T element);
+    void insertAtEnd(T element);
+    void insertAt(T element, int index);
+    void removeAtHead();
+    void removeAtEnd();
+    void removeAt(int index);
+    void swap(int firstItemIdx, int secondItemIdx); // swap two nodes without swapping data.
+    T retrieveAt(int index);
+    void replaceAt(T newElement, int index);
+    bool isExist(T element);
+    bool isItemAtEqual(T element, int index);
+    bool isEmpty();
+    int circularLinkedListSize();
+    void clear();
+    void print();
+    ~CircularLinkedList();
+};
+
+template<typename T>
 class Stack {    //this stack is based on single linked list.
     Node<T>* head = NULL;
     int size = 0;
@@ -121,5 +147,6 @@ public:
 #include"DoubleLinkedList.cpp"
 #include"Stack.cpp"
 #include"queue.cpp"
+#include"CircularLinkedList.cpp"
 
 #endif

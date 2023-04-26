@@ -29,7 +29,7 @@ T Stack<T>::top() {
     if (size != 0)
         return head->data;
     else
-        return NULL;
+        return T(NULL);
 }
 
 template<typename T>

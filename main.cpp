@@ -71,21 +71,21 @@ int main() {
 
     //------------------Single Linked List------------------//
     
-     SingleLinkedList<int> list;
-     list.insertAtTail(0);
-     list.insertAtTail(1);
-     list.insertAtTail(2);
-     list.insertAtTail(3);
-     list.insertAtTail(4);
-     list.insertAtTail(5);
-     list.insertAtTail(6);
-     list.removeAt(0);
-    cout << "before swap" << endl;
-    list.print();
-    cout << endl;
-    list.swap(1, 4);
-    cout << "after swap" << endl;
-    list.print();
+    // SingleLinkedList<int> list;
+    // list.insertAtTail(0);
+    // list.insertAtTail(1);
+    // list.insertAtTail(2);
+    // list.insertAtTail(3);
+    // list.insertAtTail(4);
+    // list.insertAtTail(5);
+    // list.insertAtTail(6);
+    // // list.removeAt(0);
+    // cout << "before swap" << endl;
+    // list.print();
+    // cout << endl;
+    // list.swap(0, 4);
+    // cout << "after swap" << endl;
+    // list.print();
 
     // list.insertAtHead(5);
     // list.insertAtHead(5);
@@ -119,7 +119,34 @@ int main() {
 
     //------------------Circular Linked List------------------//
 
-
+    // CircularLinkedList<int> CLList;
+    // CLList.insertAtEnd(0);
+    // CLList.insertAtEnd(1);
+    // CLList.insertAtEnd(2);
+    // CLList.insertAtEnd(3);
+    // CLList.insertAtEnd(4);
+    // CLList.insertAtEnd(5);
+    // CLList.insertAtEnd(6);
+    // CLList.print();
+    // CLList.swap(3, 5);
+    // CLList.print();
+    // CLList.insertAtHead(-9);
+    // CLList.insertAt(-9, 5);
+    // CLList.print();
+    // CLList.removeAt(5);
+    // CLList.removeAtHead();
+    // CLList.print();
+    // CLList.replaceAt(99, 3);
+    // CLList.print();
+    // cout << CLList.retrieveAt(3) << '\n';
+    // cout << CLList.isExist(99) << '\n';
+    // cout << CLList.isItemAtEqual(99, 0) << '\n';
+    // cout << CLList.circularLinkedListSize() << '\n';
+    // CLList.clear();
+    // cout << CLList.isEmpty() << '\n';
+    // cout << CLList.circularLinkedListSize() << '\n';
+    // CLList.print();
+    
     //------------------Queue------------------//
 
     // _queue<int> q;
@@ -153,5 +180,5 @@ int main() {
 
     //------------------Problems------------------//
     
-    //FirstQueueProblem(5);
+    // FirstQueueProblem(5);
 }

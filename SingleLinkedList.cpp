@@ -71,7 +71,6 @@ void SingleLinkedList<T>::removeAtHead() {
 
 template <typename T>
 void SingleLinkedList<T>::removeAtTail() {
-
     Node<T>* temp = head;
     while (temp->next != tail) {
         temp = temp->next;
