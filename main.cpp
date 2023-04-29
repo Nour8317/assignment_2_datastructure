@@ -56,54 +56,69 @@ void FirstQueueProblem(int n)
         q.dequeue();
     }
 }
-template <typename T>
-void SecondLinkedlistProblem(SingleLinkedList<T> l1, SingleLinkedList<T> l2)
-{
-    int size = l1.linkedListSize() + l2.linkedListSize();
 
-    SingleLinkedList<int> L;
+void SecondLinkedlistProblem(vector<SingleLinkedList<int>> lists)
+{
+    int size = lists.size();
+    SingleLinkedList<int> l1;
+    SingleLinkedList<int> l2;
+    SingleLinkedList<int> ans;
+
     for (int i = 0; i < size; i++)
     {
-        long long min = 10e9;
+        if (i < size / 2)
+        {
+            for (int j = 0; j < lists[i].linkedListSize(); j++)
+            {
+                l1.insertAtTail(lists[i].retrieveAt(j));
+            }
+        }
+
+        else
+        {
+            for (int j = 0; j < lists[i].linkedListSize(); j++)
+            {
+                l2.insertAtTail(lists[i].retrieveAt(j));
+            }
+        }
+    }
+
+    int lsize = l1.linkedListSize() + l2.linkedListSize();
+
+    for (int i = 0; i < lsize; i++)
+    {
+        int mine = INT_MAX;
+        
         for (int j = 0; j < l1.linkedListSize(); j++)
         {
-            if (l1.retrieveAt(j)<min)
-            {
-                min = l1.retrieveAt(j);
-            }
-            
-        }
-        for (int j = 0; j < l2.linkedListSize(); j++)
-        {
-            if (l2.retrieveAt(j)<min)
-            {
-                min = l2.retrieveAt(j);
-            }
-            
-        }
-        for (int j = 0; j < l1.linkedListSize(); j++)
-        {
-            if (l1.retrieveAt(j)==min)
-            {
-                l1.removeAt(j);
-                break;
-            }
-            
-        }
-        for (int j = 0; j < l2.linkedListSize(); j++)
-        {
-            if (l2.retrieveAt(j)==min)
-            {
-                l2.removeAt(j);
-                break;
-            }
-            
+            mine = min(l1.retrieveAt(j) , mine);
         }
         
-        L.insertAtTail(min);
+        for (int j = 0; j < l2.linkedListSize(); j++)
+        {
+            mine = min(l2.retrieveAt(j) , mine);
+        }
+
+        for (int j = 0; j < l1.linkedListSize(); j++)
+        {
+            if (l1.retrieveAt(j) == mine)
+            {
+                l1.removeAt(j);
+            }
+        }
+        
+        for (int j = 0; j < l2.linkedListSize(); j++)
+        {
+            if (l2.retrieveAt(j) == mine)
+            {
+                l2.removeAt(j);
+            }
+        }
+        ans.insertAtTail(mine);
     }
-     L.print();
+    ans.print();
 }
+
 int main()
 {
     //------------------Array Based List------------------//
@@ -132,6 +147,7 @@ int main()
 
     SingleLinkedList<int> list;
     SingleLinkedList<int> list2;
+    SingleLinkedList<int> list3;
     list.insertAtTail(0);
     list.insertAtTail(1);
     list.insertAtTail(2);
@@ -146,7 +162,14 @@ int main()
     list2.insertAtTail(0);
     list2.insertAtTail(0);
     list2.insertAtTail(50);
-    SecondLinkedlistProblem(list, list2);
+    list3.insertAtTail(60);
+    list3.insertAtTail(500);
+    list3.insertAtTail(5000);
+    list3.insertAtTail(-5);
+    list3.insertAtTail(510);
+
+    vector<SingleLinkedList<int>> arr = {list, list2, list3};
+    SecondLinkedlistProblem(arr);
     /*cout << "before swap" << endl;
     list.print();
     cout << endl;
