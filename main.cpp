@@ -123,6 +123,43 @@ void SecondLinkedlistProblem(vector<SingleLinkedList<int>> lists)
     ans.print();
 }
 
+template <typename T>
+class stack
+{
+private:
+    int sz;
+    _queue<T> q;
+
+public:
+    void push(T val)
+    {
+        q.enqueue(val);
+        sz++;
+    }
+    void pop()
+    {
+        if (sz == 0)
+        {
+            cout << "Empty stack" << endl;
+            return;
+        }
+        else
+        {
+            for (int i = 0; i < sz-1; i++)
+            {
+                T temp = q.first();
+                q.dequeue();
+                q.enqueue(temp);
+            }
+            q.dequeue();
+            sz--;
+        }
+    }
+    void print()
+    {
+        q.print();
+    }
+};
 int main()
 {
     //------------------Array Based List------------------//
@@ -149,7 +186,7 @@ int main()
 
     //------------------Single Linked List------------------//
 
-    SingleLinkedList<int> list;
+    /*SingleLinkedList<int> list;
     SingleLinkedList<int> list2;
     SingleLinkedList<int> list3;
     SingleLinkedList<int> list4;
@@ -182,8 +219,7 @@ int main()
     list6.insertAtTail(-51);
     list6.insertAtTail(55);
 
-    vector<SingleLinkedList<int>> arr = {list, list2, list3, list4, list5, list6};
-    SecondLinkedlistProblem(arr);
+*/
     /*cout << "before swap" << endl;
     list.print();
     cout << endl;
@@ -282,4 +318,13 @@ int main()
     //------------------Problems------------------//
 
     // FirstQueueProblem(5);
+    //vector<SingleLinkedList<int>> arr = {list, list2, list3, list4, list5, list6};
+    //SecondLinkedlistProblem(arr);
+    stack<int> s;
+    s.push(50);
+    s.push(51);
+    s.push(52);
+    s.push(53);
+    s.pop();
+    s.print();
 }
