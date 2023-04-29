@@ -66,7 +66,7 @@ void SecondLinkedlistProblem(vector<SingleLinkedList<int>> lists)
 
     for (int i = 0; i < size; i++)
     {
-        if (i < size / 2)
+        if (i <= size / 2)
         {
             for (int j = 0; j < lists[i].linkedListSize(); j++)
             {
@@ -88,30 +88,34 @@ void SecondLinkedlistProblem(vector<SingleLinkedList<int>> lists)
     for (int i = 0; i < lsize; i++)
     {
         int mine = INT_MAX;
-        
         for (int j = 0; j < l1.linkedListSize(); j++)
         {
-            mine = min(l1.retrieveAt(j) , mine);
-        }
-        
-        for (int j = 0; j < l2.linkedListSize(); j++)
-        {
-            mine = min(l2.retrieveAt(j) , mine);
+            mine = min(l1.retrieveAt(j), mine);
         }
 
+        for (int j = 0; j < l2.linkedListSize(); j++)
+        {
+            mine = min(l2.retrieveAt(j), mine);
+        }
+        bool deleted = false;
         for (int j = 0; j < l1.linkedListSize(); j++)
         {
             if (l1.retrieveAt(j) == mine)
             {
                 l1.removeAt(j);
+                deleted = true;
+                break;
             }
         }
-        
-        for (int j = 0; j < l2.linkedListSize(); j++)
+        if (!deleted)
         {
-            if (l2.retrieveAt(j) == mine)
+            for (int j = 0; j < l2.linkedListSize(); j++)
             {
-                l2.removeAt(j);
+                if (l2.retrieveAt(j) == mine)
+                {
+                    l2.removeAt(j);
+                    break;
+                }
             }
         }
         ans.insertAtTail(mine);
@@ -148,6 +152,9 @@ int main()
     SingleLinkedList<int> list;
     SingleLinkedList<int> list2;
     SingleLinkedList<int> list3;
+    SingleLinkedList<int> list4;
+    SingleLinkedList<int> list5;
+    SingleLinkedList<int> list6;
     list.insertAtTail(0);
     list.insertAtTail(1);
     list.insertAtTail(2);
@@ -155,20 +162,27 @@ int main()
     list.insertAtTail(4);
     list.insertAtTail(5);
     list.insertAtTail(6);
-    list.removeAt(0);
     list2.insertAtTail(-10);
+    list2.insertAtTail(0);
+    list2.insertAtTail(0);
     list2.insertAtTail(11);
     list2.insertAtTail(-12);
-    list2.insertAtTail(0);
-    list2.insertAtTail(0);
     list2.insertAtTail(50);
     list3.insertAtTail(60);
     list3.insertAtTail(500);
     list3.insertAtTail(5000);
     list3.insertAtTail(-5);
-    list3.insertAtTail(510);
+    list4.insertAtTail(10);
+    list4.insertAtTail(100);
+    list4.insertAtTail(-100);
+    list5.insertAtTail(-510);
+    list5.insertAtTail(522);
+    list5.insertAtTail(5);
+    list6.insertAtTail(51);
+    list6.insertAtTail(-51);
+    list6.insertAtTail(55);
 
-    vector<SingleLinkedList<int>> arr = {list, list2, list3};
+    vector<SingleLinkedList<int>> arr = {list, list2, list3, list4, list5, list6};
     SecondLinkedlistProblem(arr);
     /*cout << "before swap" << endl;
     list.print();
