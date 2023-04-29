@@ -1,52 +1,111 @@
-#include"Header.h"
+#include "Header.h"
 
-
-void FirstLinkedListProblem() {
+void FirstLinkedListProblem()
+{
     DoubleLinkedList<int> Dlist;
     int sum = 0;
     int arr[8] = {0, 1, 0, 3, 0, 2, 2, 0};
-    for (int i = 0; i < 8;i++) {
-        if (arr[i] == 0 && i != 0) {
+    for (int i = 0; i < 8; i++)
+    {
+        if (arr[i] == 0 && i != 0)
+        {
             Dlist.insertAtTail(sum);
             sum = 0;
         }
-        else {
+        else
+        {
             sum += arr[i];
         }
     }
     Dlist.forwardTraverse();
 }
 
-void SecondStackProblem(string input) {
+void SecondStackProblem(string input)
+{
     Stack<char> st;
     int count = 0;
-    for (int i = 0; i < input.size(); i++) {
+    for (int i = 0; i < input.size(); i++)
+    {
         st.push(input[i]);
     }
-    while (!st.isEmpty()){
-        if (st.top() == ')') {
+    while (!st.isEmpty())
+    {
+        if (st.top() == ')')
+        {
             st.pop();
-            if (st.top() == '(') {
+            if (st.top() == '(')
+            {
                 count += 2;
             }
         }
-        else st.pop();
+        else
+            st.pop();
     }
     cout << count;
 }
 
-void FirstQueueProblem(int n) {
+void FirstQueueProblem(int n)
+{
     _queue<string> q;
     q.enqueue("1");
-    while (n--) {
+    while (n--)
+    {
         q.enqueue(q.first() + "0");
         q.enqueue(q.first() + "1");
         cout << q.first() << " ";
         q.dequeue();
     }
 }
+template <typename T>
+void SecondLinkedlistProblem(SingleLinkedList<T> l1, SingleLinkedList<T> l2)
+{
+    int size = l1.linkedListSize() + l2.linkedListSize();
 
-int main() {
+    SingleLinkedList<int> L;
+    for (int i = 0; i < size; i++)
+    {
+        long long min = 10e9;
+        for (int j = 0; j < l1.linkedListSize(); j++)
+        {
+            if (l1.retrieveAt(j)<min)
+            {
+                min = l1.retrieveAt(j);
+            }
+            
+        }
+        for (int j = 0; j < l2.linkedListSize(); j++)
+        {
+            if (l2.retrieveAt(j)<min)
+            {
+                min = l2.retrieveAt(j);
+            }
+            
+        }
+        for (int j = 0; j < l1.linkedListSize(); j++)
+        {
+            if (l1.retrieveAt(j)==min)
+            {
+                l1.removeAt(j);
+                break;
+            }
+            
+        }
+        for (int j = 0; j < l2.linkedListSize(); j++)
+        {
+            if (l2.retrieveAt(j)==min)
+            {
+                l2.removeAt(j);
+                break;
+            }
+            
+        }
+        
+        L.insertAtTail(min);
+    }
+     L.print();
+}
+int main()
+{
     //------------------Array Based List------------------//
 
     // ArrayList<int> arr(6);
@@ -70,22 +129,30 @@ int main() {
     // arr.print();
 
     //------------------Single Linked List------------------//
-    
-     SingleLinkedList<int> list;
-     list.insertAtTail(0);
-     list.insertAtTail(1);
-     list.insertAtTail(2);
-     list.insertAtTail(3);
-     list.insertAtTail(4);
-     list.insertAtTail(5);
-     list.insertAtTail(6);
-      list.removeAt(0);
-     cout << "before swap" << endl;
-     list.print();
-     cout << endl;
-     list.swap(0, 5);
-     cout << "after swap" << endl;
-     list.print();
+
+    SingleLinkedList<int> list;
+    SingleLinkedList<int> list2;
+    list.insertAtTail(0);
+    list.insertAtTail(1);
+    list.insertAtTail(2);
+    list.insertAtTail(3);
+    list.insertAtTail(4);
+    list.insertAtTail(5);
+    list.insertAtTail(6);
+    list.removeAt(0);
+    list2.insertAtTail(-10);
+    list2.insertAtTail(11);
+    list2.insertAtTail(-12);
+    list2.insertAtTail(0);
+    list2.insertAtTail(0);
+    list2.insertAtTail(50);
+    SecondLinkedlistProblem(list, list2);
+    /*cout << "before swap" << endl;
+    list.print();
+    cout << endl;
+    list.swap(0, 5);
+    cout << "after swap" << endl;
+    list.print();*/
 
     // list.insertAtHead(5);
     // list.insertAtHead(5);
@@ -102,7 +169,7 @@ int main() {
     // list.print();
 
     //------------------Double Linked List------------------//
-    
+
     // DoubleLinkedList<int> Dlist;
     // cout << Dlist.isEmpty();
     // Dlist.insertAt(1, 0);
@@ -115,7 +182,6 @@ int main() {
     // Dlist.insertAtHead(2);
     // Dlist.insertAtHead(3);
     // Dlist.forwardTraverse();
-
 
     //------------------Circular Linked List------------------//
 
@@ -146,7 +212,7 @@ int main() {
     // cout << CLList.isEmpty() << '\n';
     // cout << CLList.circularLinkedListSize() << '\n';
     // CLList.print();
-    
+
     //------------------Queue------------------//
 
     // _queue<int> q;
@@ -160,7 +226,6 @@ int main() {
     // cout << q.isEmpty() << endl;
     // cout <<"size= "<<q.queueSize() << endl;
     // q.print();
-
 
     //------------------Stack------------------//
     // Stack<int> St;
@@ -176,9 +241,8 @@ int main() {
     // St.push(3);
     // St.print();
     // cout << St.stackSize() << endl;
-    
 
     //------------------Problems------------------//
-    
+
     // FirstQueueProblem(5);
 }
