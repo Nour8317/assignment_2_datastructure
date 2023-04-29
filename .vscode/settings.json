@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "algorithm": "cpp"
+        "*.cs": "csharp",
+        "algorithm": "cpp",
+        "iostream": "cpp"
     }
 }

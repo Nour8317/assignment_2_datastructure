@@ -60,7 +60,7 @@ void Stack<T>::print() {
     if (size > 0) {
         Node<T>* current = head;
         while (current->next != NULL) {
-            cout << current->data << ',';
+            cout << current->data;
             current = current->next;
         }
         cout << current->data << '\n';
