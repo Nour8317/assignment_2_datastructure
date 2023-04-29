@@ -87,7 +87,7 @@ void ArrayList<T>::clear() {
 template<typename T>
 void ArrayList<T>::print() {
     if (isEmpty()) return void(cout << "Empty Array!\n");
-    
+
     for (int i = 0; i < size - 1; i++) {
         cout << array[i] << ' ';
     }

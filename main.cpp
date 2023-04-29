@@ -73,7 +73,7 @@ void SecondLinkedlistProblem(vector<SingleLinkedList<int>> lists) {
 // FirstStackProblem
 int GetPriority(char ch) {
     if (ch == '+' || ch == '-') return 1;
-    if (ch == '*' || ch == '/') return 2; 
+    if (ch == '*' || ch == '/') return 2;
     if (ch == '^') return 3;
 
     return 0;
@@ -83,7 +83,7 @@ string FirstStackProblem(string input) {
     Stack<char> operators;
     for (int i = 0; i < input.size(); i++) {
         if (input[i] == ' ') continue;
-        
+
         if (!isalpha(input[i]) && !isdigit(input[i])) {
             if (input[i] == '(') {
                 operators.push(input[i]);
@@ -174,6 +174,28 @@ public:
         q.print();
     }
 };
+
+// ThirdQueueProblem
+template<typename T>
+void SortQueue(_queue<T>& myQ) {
+    const int SIZE = myQ.queueSize();
+    T arr[SIZE];
+
+    for (int i = 0; i < SIZE; i++) {
+        arr[i] = myQ.dequeue();
+    }
+
+    std::sort(arr, arr + SIZE);
+
+    for (int i = 0; i < SIZE; i++) {
+        cout << arr[i] << ' ';
+    }
+    cout << '\n';
+
+    for (int i = 0; i < SIZE; i++) {
+        myQ.enqueue(arr[i]);
+    }
+}
 
 int main() {
     //------------------Array Based List------------------//
@@ -299,11 +321,11 @@ int main() {
     // q.enqueue(2);
     // q.enqueue(3);
     // q.dequeue();
-    // cout <<"first= "<< q.first() << endl;
-    // cout <<"size= "<<q.queueSize() << endl;
+    // cout << "first = " << q.first() << endl;
+    // cout << "size = " << q.queueSize() << endl;
     // q.clear();
     // cout << q.isEmpty() << endl;
-    // cout <<"size= "<<q.queueSize() << endl;
+    // cout << "size = " << q.queueSize() << endl;
     // q.print();
 
     //------------------Stack------------------//
@@ -341,4 +363,12 @@ int main() {
     // cout << FirstStackProblem("X^Y/(5*Z)+2") << '\n';
     // cout << FirstStackProblem("A+B*C+D") << '\n';
     // cout << FirstStackProblem("( A + B ) * (C + D)") << '\n';
+    // _queue<int> q;
+    // q.enqueue(5);
+    // q.enqueue(3);
+    // q.enqueue(7);
+    // q.enqueue(9);
+    // q.enqueue(1);
+    // SortQueue(q);
+    // q.print();
 }

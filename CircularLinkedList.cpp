@@ -29,7 +29,7 @@ void CircularLinkedList<T>::insertAtEnd(T element) {
 
     Node<T>* temp = new Node<T>;
     temp->data = element;
-    
+
     tail->next = temp;
     tail = temp;
     tail->next = head;
@@ -99,10 +99,10 @@ void CircularLinkedList<T>::swap(int firstItemIdx, int secondItemIdx) {
     if (firstItemIdx < 0 || firstItemIdx > size - 1) return void(cout << "Out of Range!\n");
     if (secondItemIdx < 0 || secondItemIdx > size - 1) return void(cout << "Out of Range!\n");
     if (firstItemIdx == secondItemIdx) return;
-    
+
     int temp1 = firstItemIdx;
     int temp2 = secondItemIdx;
-    
+
     Node<T>* current = head;
     while (temp1-- > 1) {
         current = current->next;
@@ -110,7 +110,7 @@ void CircularLinkedList<T>::swap(int firstItemIdx, int secondItemIdx) {
     Node<T>* firstPrev = firstItemIdx == 0 ? tail : current;
     Node<T>* firstItem = firstPrev->next;
     Node<T>* firstNext = firstItem->next;
-    
+
     current = head;
     while (temp2-- > 1) {
         current = current->next;
@@ -118,7 +118,7 @@ void CircularLinkedList<T>::swap(int firstItemIdx, int secondItemIdx) {
     Node<T>* secondPrev = secondItemIdx == 0 ? tail : current;
     Node<T>* secondItem = secondPrev->next;
     Node<T>* secondNext = secondItem->next;
-        
+
     if (firstNext == secondItem) {
         secondItem->next = firstItem;
         firstItem->next = secondNext;
@@ -199,12 +199,12 @@ bool CircularLinkedList<T>::isItemAtEqual(T element, int index) {
         cout << "Out of Range!\n";
         return false;
     }
-    
+
     Node<T>* current = head;
     while (index--) {
         current = current->next;
     }
-    
+
     if (current->data == element)
         return true;
     else
@@ -238,7 +238,7 @@ void CircularLinkedList<T>::clear() {
 template<typename T>
 void CircularLinkedList<T>::print() {
     if (isEmpty()) return void(cout << "Empty List!\n");
-    
+
     Node<T>* current = head;
     while (current != tail) {
         cout << current->data << ' ';
