@@ -176,24 +176,40 @@ public:
 };
 
 // ThirdQueueProblem
-template<typename T>
-void SortQueue(_queue<T>& myQ) {
-    const int SIZE = myQ.queueSize();
-    T arr[SIZE];
-
-    for (int i = 0; i < SIZE; i++) {
-        arr[i] = myQ.dequeue();
+int MinIndex(_queue<int>& q, int sortedIndex) {
+    int min_index = -1;
+    int min_val = INT_MAX;
+    int n = q.queueSize();
+    for (int i = 0; i < n; i++) {
+        int curr = q.first();
+        q.dequeue();
+        if (curr <= min_val && i <= sortedIndex) {
+            min_index = i;
+            min_val = curr;
+        }
+        q.enqueue(curr);
     }
+    return min_index;
+}
 
-    std::sort(arr, arr + SIZE);
-
-    for (int i = 0; i < SIZE; i++) {
-        cout << arr[i] << ' ';
+void InsertMinToRear(_queue<int>& q, int min_index) {
+    int min_val;
+    int n = q.queueSize();
+    for (int i = 0; i < n; i++) {
+        int curr = q.first();
+        q.dequeue();
+        if (i != min_index)
+            q.enqueue(curr);
+        else
+            min_val = curr;
     }
-    cout << '\n';
+    q.enqueue(min_val);
+}
 
-    for (int i = 0; i < SIZE; i++) {
-        myQ.enqueue(arr[i]);
+void SortQueue(_queue<int>& q) {
+    for (int i = 1; i <= q.queueSize(); i++) {
+        int min_index = MinIndex(q, q.queueSize() - i);
+        InsertMinToRear(q, min_index);
     }
 }
 
